@@ -61,12 +61,14 @@ if(WITH_PTCCLIENT)
                         )
     set_target_properties(ptcClient_lib 
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS ptcClient_lib DESTINATION lib)
 endif(WITH_PTCCLIENT)
     add_library(serialClient_lib 
     SerialClient/src/serial_client.cc
     )
     set_target_properties(serialClient_lib 
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS serialClient_lib DESTINATION lib)
 if (WITH_SERIALCLIENT)
 
 endif(WITH_SERIALCLIENT)
@@ -79,6 +81,7 @@ if(WITH_PTCPARSER)
     PtcParser/ptc_parser.cc)
     set_target_properties(ptcParser_lib 
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS ptcParser_lib DESTINATION lib)
 endif(WITH_PTCPARSER)
 
 
@@ -88,6 +91,7 @@ if(WITH_CONTAINER)
     Container/src/ring_2dex.cc)
     set_target_properties(container_lib
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS container_lib DESTINATION lib)
 endif(WITH_CONTAINER)
 
 if(WITH_LIDARBOARD)
@@ -105,6 +109,8 @@ if(WITH_LIDARBOARD)
         serialClient_lib)
     set_target_properties(source_lib
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS source_lib DESTINATION lib)
+    
 endif(WITH_LIDARBOARD)
 
 if(WITH_PLATUTIL)
@@ -113,6 +119,7 @@ if(WITH_PLATUTIL)
         ./src/auto_tick_count.cc)
     set_target_properties(platutils_lib
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS platutils_lib DESTINATION lib)
 endif(WITH_PLATUTIL)
 
 
@@ -125,6 +132,7 @@ if(WITH_LOG)
         ${CMAKE_THREAD_LIBS_INIT})
     set_target_properties(log_lib
         PROPERTIES CXX_STANDARD_REQUIRED TRUE CXX_STANDARD 14)
+    install(TARGETS log_lib DESTINATION lib)
 endif(WITH_LOG)
 
 include_directories(${PROJECT_SOURCE_DIR})
